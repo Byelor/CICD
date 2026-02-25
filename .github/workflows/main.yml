@@ -1,0 +1,22 @@
+name: C++ Unit Tests
+
+# Триггеры: запускаем при каждом пуше в любую ветку
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    # Запускаем на свежей Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Скачиваем код из репозитория
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Компилируем (g++ уже предустановлен в системе)
+      - name: Compile C++ Code
+        run: g++ main.cpp -o my_tests
+
+      # 3. Запускаем первый тест (через main с аргументами)
+      - name: Run all Tests
+        run: ./my_tests test

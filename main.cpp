@@ -7,9 +7,42 @@ int sumTwoInt(int a, int b)
 }
 
 
-int main(){
+#define TEST(condition, message) \
+    do { \
+        if (!(condition)) { \
+        cerr << "TEST ERROR" << endl; \
+        cerr << "Test: " << __func__ << endl; \
+        cerr << "Message: " << message << endl; \
+        cerr << "File: " << __FILE__ << "Line: " << __LINE__ << endl; \
+        abort(); \
+        } \
+    } \
+    while(0) \
 
-cout << "Hello world\n";
+void test1()
+{
+    TEST(sumTwoInt(10,20) == 30, "error, wrong value");
+}
+void test2()
+{
+    TEST(sumTwoInt(20, -1) == 21, "error, wrong value");
+}
 
-cout << sumTwoInt(10,20);
+int main(int argc, char* argv[]){
+
+if(argc > 1)
+{
+  string run_type = argv[1];
+
+  if(run_type == "standart"){
+
+}
+  else if(run_type == "test")
+  {
+     test1();
+     test2();
+  }
+}
+cout << "IT'S ALL GOOD MAN)";
+return 0;
 }

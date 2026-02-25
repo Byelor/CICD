@@ -32,6 +32,10 @@ void test3()
 {
     TEST(sumTwoInt(20,0) == sumTwoInt(0,20), "error wrong value");
 }
+void faketest()
+{
+    TEST(sumTwoInt(30,10) == 0, "FAKE TEST");
+}
 int main(int argc, char* argv[]){
 
 if(argc > 1)
@@ -46,6 +50,7 @@ if(argc > 1)
      test1();
      test2();
      test3();
+     faketest();
   }
 }
 cout << "IT'S ALL GOOD MAN)";

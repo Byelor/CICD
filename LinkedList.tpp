@@ -57,7 +57,7 @@ T LinkedList<T>::top() const
 }
 template <typename T>
 LinkedList<T>::Node::Node(T value){
-    this.value = value;
-    this.next = nullptr;
+    this->value = value;
+    this->next = nullptr;
 }
 

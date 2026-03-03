@@ -1,5 +1,4 @@
 #include "LinkedList.h"
-#include <exception>
 
 template <typename T>
 void LinkedList<T>::push_back(T value)
@@ -14,7 +13,7 @@ void LinkedList<T>::push_back(T value)
         {
             currentNode = currentNode->next;
         }
-        currentNode.next = Node(value);
+        currentNode->next = new Node(value);
     }
 }
 
@@ -23,12 +22,12 @@ T LinkedList<T>::pop(){
     T returnValue;
     if(head == nullptr)
     {
-        throw std::out_of_range();
+        throw std::out_of_range("No elements in List!");
     }
     if(head->next == nullptr)
     {
         returnValue = head->value;
-        head == nullptr;
+        head = nullptr;
         return returnValue;
     }
     Node* currentNode = head;
@@ -46,14 +45,14 @@ T LinkedList<T>::top() const
 {
     if(head == nullptr)
     {
-        throw std::out_of_range();
+        throw std::out_of_range("No elements in List!");
     }
     Node* currentNode = head;
     while(currentNode -> next != nullptr)
     {
         currentNode = currentNode->next;
     }
-    return currentNode.value;
+    return currentNode->value;
 }
 template <typename T>
 LinkedList<T>::Node::Node(T value){

@@ -16,8 +16,7 @@ class LinkedList{
 
     void push_back(T value);
     T pop();
-    
-    
+    T top() const;
   
 };
 
